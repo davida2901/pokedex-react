@@ -1,0 +1,15 @@
+.pagination-container{
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 15px;
+}
+
+button{
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+}
