@@ -1,11 +1,9 @@
 import "../styles/pokemonlist.css";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import PokemonDetail from "./PokemonDetail";
-import { useState } from "react";
 
 function PokemonList({ pokemon, searchData }) {
   const list = searchData.length ? searchData : pokemon;
-  const [getID, setGetID] = useState("");
 
   return (
     <BrowserRouter>
@@ -41,8 +39,6 @@ function PokemonList({ pokemon, searchData }) {
           );
         })}
       </div>
-
-      <Link to={`/pokemon-detail/:${getID}`} />
 
       <Routes>
         <Route path="/pokemon-detail/:id" element={<PokemonDetail />} exact />
