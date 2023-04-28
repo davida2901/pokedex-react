@@ -3,11 +3,12 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: red;
   }
   
   .loading {
     border: 8px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #3498db;
+    border-left-color: black;
     border-radius: 50%;
     width: 50px;
     height: 50px;

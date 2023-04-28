@@ -3,16 +3,18 @@ import React, { useEffect, useState } from "react";
 import PokemonList from "../components/PokemonList";
 import Pagination from "../components/Pagination";
 import Loading from "../components/Loading";
+import SearchBar from "../components/SearchBar";
 
 function Pokedex() {
   const [pokeData, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [nextPageUrl, setNextPageUrl] = useState();
   const [previousPageUrl, setPreviousPageUrl] = useState();
+  const [searchResult, setSearchResults] = useState([]);
 
-
-  const [currentURL, setCurrentPageURL] = useState("https://pokeapi.co/api/v2/pokemon")
-
+  const [currentURL, setCurrentPageURL] = useState(
+    "https://pokeapi.co/api/v2/pokemon"
+  );
 
   useEffect(() => {
     setLoading(true);
@@ -33,7 +35,6 @@ function Pokedex() {
         setLoading(false);
         setNextPageUrl(response.data.next);
         setPreviousPageUrl(response.data.previous);
-        console.log(pokemonData);
         setData(pokemonData);
       });
 
@@ -41,7 +42,7 @@ function Pokedex() {
   }, [currentURL]);
 
   if (loading) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   function GoToNextPage() {
@@ -53,7 +54,8 @@ function Pokedex() {
 
   return (
     <>
-      <PokemonList pokemon={pokeData} />
+      <SearchBar pokemon={pokeData} setResults={setSearchResults} />
+      <PokemonList pokemon={pokeData} searchData={searchResult} />
       <Pagination
         GoToNextPage={nextPageUrl ? GoToNextPage : null}
         GoToPreviusPage={previousPageUrl ? GoToPreviusPage : null}
