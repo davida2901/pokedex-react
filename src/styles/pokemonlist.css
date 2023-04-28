@@ -15,6 +15,7 @@
     border-radius: 10px;
     width: 15%;
     position: relative;
+    cursor: pointer;
 }
 
 .poke-name{
@@ -34,7 +35,7 @@
     width: 100px;
     height: 100px;
     padding-top: 30px;
-    padding-bottom: 10vh;
+    padding-bottom: 90px;
     object-fit: contain;
 }
 

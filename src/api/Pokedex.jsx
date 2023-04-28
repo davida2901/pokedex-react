@@ -4,6 +4,7 @@ import PokemonList from "../components/PokemonList";
 import Pagination from "../components/Pagination";
 import Loading from "../components/Loading";
 import SearchBar from "../components/SearchBar";
+import { BrowserRouter } from "react-router-dom";
 
 function Pokedex() {
   const [pokeData, setData] = useState();
