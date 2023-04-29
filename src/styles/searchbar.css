@@ -1,0 +1,37 @@
+.search-container{
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.search-bar{
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    padding-left: 15px;
+    font-size: 1.25rem;
+    color: black;
+}
+
+.search-bar:focus{
+    outline: none;
+}
+.search-bar::placeholder{
+    color: black;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .search-container{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .search-container{
+        width: 100%;
+    }
+}

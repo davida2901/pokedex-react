@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import "../styles/searchbar.css";
 
 function SearchBar({ pokemon, setResults }) {
   const [input, setInput] = useState("");
@@ -18,18 +19,17 @@ function SearchBar({ pokemon, setResults }) {
   };
 
   return (
-    <div>
-      <div className="search-container">
-        <FaSearch id="search-icon" />
-        <input
-          type="text"
-          placeholder="Pokemon search"
-          value={input}
-          onChange={(e) => {
-            handleChange(e.target.value.toLowerCase());
-          }}
-        />
-      </div>
+    <div className="search-container">
+      <FaSearch id="search-icon" />
+      <input
+        className="search-bar"
+        type="text"
+        placeholder="Pokemon search"
+        value={input}
+        onChange={(e) => {
+          handleChange(e.target.value.toLowerCase());
+        }}
+      />
     </div>
   );
 }

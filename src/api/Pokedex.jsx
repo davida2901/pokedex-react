@@ -13,8 +13,10 @@ function Pokedex() {
   const [previousPageUrl, setPreviousPageUrl] = useState();
   const [searchResult, setSearchResults] = useState([]);
 
+  
+
   const [currentURL, setCurrentPageURL] = useState(
-    "https://pokeapi.co/api/v2/pokemon"
+    "https://pokeapi.co/api/v2/pokemon/"
   );
 
   useEffect(() => {
@@ -27,6 +29,7 @@ function Pokedex() {
       })
       .then(async (response) => {
         const pokemonList = response.data.results;
+        console.log(pokemonList)
         const pokemonData = await Promise.all(
           pokemonList.map(async (pokemon) => {
             const { data } = await axios.get(pokemon.url);
