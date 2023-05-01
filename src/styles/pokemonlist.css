@@ -6,6 +6,12 @@
     padding: 25px;
     gap: 10px;
     background-color: red;
+    position: relative
+}
+
+.search-container{
+  position: absolute;
+  top: 1;
 }
 
 .container-card{
@@ -15,6 +21,7 @@
     border-radius: 10px;
     width: 15%;
     position: relative;
+    top: 75px;
     cursor: pointer;
 }
 
@@ -60,6 +67,7 @@
 }
 
 
+
 @media (max-width: 768px) {
     .container {
       flex-direction: column;
@@ -78,5 +86,8 @@
     .poke-img {
       width: 80px;
       height: 80px;
+    }
+    .search-container{
+      position: relative;
     }
   }

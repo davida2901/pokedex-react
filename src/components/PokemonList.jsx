@@ -1,14 +1,59 @@
+import React, { useEffect, useState } from "react";
 import "../styles/pokemonlist.css";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-import PokemonDetail from "./PokemonDetail";
+import { getPokemon } from "../api/pokedex";
+import Loading from "./Loading";
+import Pagination from "./Pagination";
+import axios from "axios";
+import SearchBar from "./SearchBar";
 
-function PokemonList({ pokemon, searchData }) {
-  const list = searchData.length ? searchData : pokemon;
+function PokemonList() {
+  const [pokeData, setPokeData] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [nextPage, setNextPage] = useState("");
+  const [previousPage, setPreviousPage] = useState("");
+  const [currentPage, setCurrentPage] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    setLoading(true);
+    getPokemon().then(async (data) => {
+      setLoading(false);
+      const results = data.results;
+      const pokemonData = await Promise.all(
+        results.map(async (pokemon) => {
+          const { data } = await axios.get(pokemon.url);
+          return data;
+        })
+      );
+      setPokeData(pokemonData);
+    });
+  }, [currentPage]);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  // function GotoNextPage(){
+  //   setCurrentPage(nextPage)
+  // }
+
+  // function GotoPreviousPage(){
+  //   setCurrentPage(previousPage)
+  // }
+
+  const list = searchResults.length ? searchResults : pokeData;
 
   return (
-    <BrowserRouter>
-      <div className="container">
-        {list.map((poke) => {
+    <div className="container">
+      <div className="search-container">
+        <SearchBar
+          className="searchBar"
+          pokemon={pokeData}
+          setResults={setSearchResults}
+        />
+      </div>
+      {list &&
+        list.map((poke) => {
           return (
             <div className="container-card" key={poke.id}>
               <h2 className="poke-name">
@@ -38,12 +83,12 @@ function PokemonList({ pokemon, searchData }) {
             </div>
           );
         })}
-      </div>
 
-      <Routes>
-        <Route path="/pokemon-detail/:id" element={<PokemonDetail />} exact />
-      </Routes>
-    </BrowserRouter>
+      {/* <Pagination
+        GotoNextPage={nextPage ? GotoNextPage : null}
+        GotoPreviousPage={previousPage ? GotoPreviousPage : null}
+      /> */}
+    </div>
   );
 }
 

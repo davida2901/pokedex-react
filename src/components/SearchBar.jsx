@@ -10,7 +10,6 @@ function SearchBar({ pokemon, setResults }) {
       return value && poke && poke.name.includes(value);
     });
     setResults(result);
-    console.log(result);
   };
 
   const handleChange = (value) => {
