@@ -48,7 +48,6 @@ function PokemonList() {
       <div className="search-container">
         <SearchBar
           className="searchBar"
-          pokemon={pokeData}
           setResults={setSearchResults}
         />
       </div>

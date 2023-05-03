@@ -22,3 +22,9 @@ export const getPokemon = async()=>{
 
   return pokemonList
 }
+
+export const getBerries = async()=>{
+  const response = await api.get("/berry")
+  const berryList = response.data
+  return berryList
+}

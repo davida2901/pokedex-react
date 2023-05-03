@@ -2,9 +2,10 @@ import React from "react";
 import { BrowserRouter, Link,Routes,Route } from "react-router-dom";
 import PokemonList from "./PokemonList";
 import "../styles/navBar.css"
+import BerriesList from "./BerriesList";
 
 
-function NavBar({pokemon}) {
+function NavBar() {
   return (
     <BrowserRouter>
       <nav className="navbar-container">
@@ -27,6 +28,7 @@ function NavBar({pokemon}) {
       <Routes>
         <Route path="/" exact/>
         <Route path="/pokemon" element={<PokemonList/>} exact/>
+        <Route path="/berries" element={<BerriesList/>} exact/>
       </Routes>
 
       

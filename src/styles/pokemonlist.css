@@ -6,7 +6,8 @@
     padding: 25px;
     gap: 10px;
     background-color: red;
-    position: relative
+    position: relative;
+    padding-bottom: 100px;
 }
 
 .search-container{
@@ -17,10 +18,10 @@
 .container-card{
     text-align: center;
     padding: 25px;
-    border: 1px solid black;
-    border-radius: 10px;
-    width: 15%;
+    border: 2px solid black;
+    border-radius: 14px;
     position: relative;
+    width: 15%;
     top: 75px;
     cursor: pointer;
 }
