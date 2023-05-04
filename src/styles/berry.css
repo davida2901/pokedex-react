@@ -1,64 +1,124 @@
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.berry-card {
+  border: 3px solid black;
+  border-radius: 13px;
+  box-shadow: 4px 10px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  cursor: pointer;
+}
+
+.berry-name{
+  background-color: black;
+  color: white;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-radius: 10px 10px 0 0 ;
+}
+
+.berry-flavors {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 0 0 10px 10px;
+}
+
+.berry-flavor-title {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+.berry-flavor-name {
+  color: white;
+}
+
+.berry-card:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.berry-modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.berry-modal-content {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  position: relative;
+}
+
+.berry-modal-close {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  cursor: pointer;
+  color: black;
+  border: none;
+  background: none;
+  font-size: 25px;
+}
+
+.berry-modal-name {
+  padding-bottom: 15px;
+  font-size: 35px;
+}
+
+table {
+  padding: 15px;
+  border: 1px solid black;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+table thead th{
+  background: #B0B3B5;
+}
+
+table thead tr th,
+table tbody td {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+}
+
+
+@media (min-width: 768px) {
   .berry-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    width: 200px;
-    height: 200px;
-    position: relative;
-    cursor: pointer;
+    width: 250px;
+    height: 250px;
   }
-  
-  .berry-card:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .berry-modal {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .berry-modal-content {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    max-width: 90%;
-    max-height: 90%;
-    overflow: auto;
-    position: relative;
-  }
-  
-  .berry-modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-  }
-  
-  @media (min-width: 768px) {
-    .berry-card {
-      width: 250px;
-      height: 250px;
-    }
-  }
-  
+}
